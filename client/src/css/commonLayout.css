@@ -1,0 +1,28 @@
+.common-layout-main {
+  width: 100%; 
+  padding: 2%;
+  box-sizing: border-box; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  padding-top: 7%;
+  flex-direction: column;
+}
+.common-layout-container{
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .common-layout-main{
+    padding: 3%; 
+    padding-top: 9%;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .common-layout-main{
+    padding: 6%; 
+    padding-top: 28%;
+  }
+}

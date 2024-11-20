@@ -1,0 +1,57 @@
+
+.common-input-containner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.common-input-label {
+  font-family: NotoSerifJP, serif;
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  color: whitesmoke;
+}
+
+.common-input-input {
+  font-family: NotoSerifJP, serif;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  padding: 2% 6%;
+  height: 10vh;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.common-input-input:focus {
+  border-color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .common-input-label {
+    font-size: 0.95rem;
+  }
+
+  .common-input-input {
+    font-size: 0.95rem;
+    padding: 2% 6%;
+    height: 7vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .common-input-label {
+    font-size: 0.9rem;
+  }
+
+  .common-input-input {
+    font-size: 0.7rem;
+    padding: 2% 6%;
+    height: 5vh;
+
+  }
+}

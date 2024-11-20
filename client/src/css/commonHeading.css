@@ -1,0 +1,23 @@
+.common-heading-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3%;
+  margin-top: 3%;
+}
+.common-heading-container h1{
+  font-size: 2rem;
+  color: whitesmoke;
+}
+
+@media (max-width: 768px) {
+  .common-heading-container h1{
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .common-heading-container h1{
+    font-size: 1.2rem;
+  }
+}

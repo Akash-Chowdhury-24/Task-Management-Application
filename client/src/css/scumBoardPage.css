@@ -1,0 +1,16 @@
+.scrum-board-button-container{
+  display: flex;
+  flex-direction: row;
+  gap: 2vw;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 3%;
+}
+.scrum-board-outlet-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

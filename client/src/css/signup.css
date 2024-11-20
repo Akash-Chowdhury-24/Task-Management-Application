@@ -1,0 +1,37 @@
+.sign-up-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box; 
+}
+
+.sign-up-container h2 {
+  font-size: 3rem; 
+  margin-bottom: 5%; 
+  text-align: center; 
+}
+
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto; 
+}
+
+@media (max-width: 768px) { 
+  .sign-up-container h2 {
+    font-size: 1.75rem; 
+  }
+}
+
+@media (max-width: 480px) { 
+  .sign-up-container h2 {
+    font-size: 1.5rem; 
+  }
+
+  .sign-up-form {
+    padding: 15px; 
+  }
+}

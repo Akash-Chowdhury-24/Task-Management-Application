@@ -1,0 +1,47 @@
+.auth-page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  box-sizing: border-box; 
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+.auth-page-form-box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.8vh;
+}
+
+.auth-page-button-container {
+  display: flex;
+  justify-content: center; 
+  margin-bottom: 4%;
+}
+
+
+@media (max-width: 768px) { 
+  .auth-page-container {
+    padding: 15px; 
+  }
+
+  .auth-page-form-box {
+    row-gap: 3vh; 
+  }
+
+}
+
+@media (max-width: 480px) { 
+
+  .auth-page-button-container {
+    margin-top: 10px;
+  }
+}

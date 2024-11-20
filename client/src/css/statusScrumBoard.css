@@ -1,0 +1,149 @@
+.status-scrum-board-main-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.status-scrum-board-container {
+  border: 1px solid #333333;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  width: auto;
+  height: 65vh;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.status-scrum-board-heading {
+  padding: 0.25rem 0.75rem;
+  text-align: center;
+  background-color: black;
+  border: none;
+  margin-bottom: 0;
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.status-scrum-board-render {
+  padding: 3;
+  height: calc(60vh - 10vh);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.status-scrum-board-scroll {
+  height: 100%;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+
+
+.status-scrum-board-heading h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+}
+
+
+.status-scrum-board-task {
+  border: 1px solid #333333;
+  margin: 2%;
+  background-color: #b8b8b8a7;
+  color: #000;
+  height: 20vh;
+  place-items: center;
+  place-content: center;
+
+  &:hover {
+    border: 1px solid #4A90E2;
+    cursor: pointer;
+    background-color: #333333;
+    color: rgb(134, 134, 134);
+  }
+}
+
+.status-scrum-board-task h3 {
+  width: 100%;
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+}
+
+.status-scrum-board-task p {
+  width: 100%;
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.status-scrum-board-done-style {
+  text-decoration: line-through;
+}
+
+.status-scrum-board-task-title-container {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  max-width: 300px;
+  word-wrap: break-word;
+  white-space: normal;
+  text-align: center;
+  max-height: 4.5em;
+  overflow-y: auto;
+  margin:2%;
+  &::-webkit-scrollbar {
+    display: none;
+  };
+}
+
+@media (max-width: 768px) {
+  .status-scrum-board-main-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: auto;
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+}
+
+/* Adjust for mobile screens (max-width: 480px) */
+@media (max-width: 480px) {
+  .status-scrum-board-main-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: auto;
+    height: 80vh;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+
+}
