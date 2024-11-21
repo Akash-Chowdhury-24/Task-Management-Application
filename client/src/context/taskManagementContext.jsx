@@ -19,6 +19,7 @@ export function TaskManagmentState({ children }) {
   const [taskFormData, setTaskFromData] = useState(initialTaskState);
   const [taskList, setTaskList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [verifying, setVerifying] = useState(true);
   const [currentEditedTaskId,setCurrentEditedTaskId] = useState(null);
 
   const navigate = useNavigate();
@@ -28,14 +29,18 @@ export function TaskManagmentState({ children }) {
   // this how we will automatically always be in the task list page if we have signed in 
   useEffect(() => {
     const verifyCookie = async () => {
+      setVerifying(true);
       const data = await callUserAuthAPI();
       if (data?.userInfo) {
         setUser(data?.userInfo);
       }
 
+      setVerifying(false);
       // so if we are if we are logged in and we want to go to the auth page or the blank page then we will redirect to task list page but for anyother page we will simply go to that page 
       return data?.success ? navigate(location.pathname === '/auth' || location.pathname === '/' ? '/task/list' : `${location.pathname}`) : navigate("/auth"); // if success then list page else go to auth
-    }
+
+
+    };
     verifyCookie();
   }, [navigate, location.pathname])
   return (
@@ -51,6 +56,7 @@ export function TaskManagmentState({ children }) {
       setLoading,
       currentEditedTaskId,
       setCurrentEditedTaskId,
+      verifying,
     }}>
       {children}
     </TaskManagmentContext.Provider>
