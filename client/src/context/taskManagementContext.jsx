@@ -28,21 +28,37 @@ export function TaskManagmentState({ children }) {
   // therefore when ever there is a change in the navigation variable or in the path of the website this useeffect will be triggered 
   // this how we will automatically always be in the task list page if we have signed in 
   useEffect(() => {
-    const verifyCookie = async () => {
-      setVerifying(true);
-      const data = await callUserAuthAPI();
-      if (data?.userInfo) {
-        setUser(data?.userInfo);
-      }
+  //   const verifyCookie = async () => {
+  //     setVerifying(true);
+  //     const data = await callUserAuthAPI();
+  //     if (data?.userInfo) {
+  //       setUser(data?.userInfo);
+  //     }
 
-      setVerifying(false);
-      // so if we are if we are logged in and we want to go to the auth page or the blank page then we will redirect to task list page but for anyother page we will simply go to that page 
-      return data?.success ? navigate(location.pathname === '/auth' || location.pathname === '/' ? '/task/list' : `${location.pathname}`) : navigate("/auth"); // if success then list page else go to auth
+  //     setVerifying(false);
+  //     // so if we are if we are logged in and we want to go to the auth page or the blank page then we will redirect to task list page but for anyother page we will simply go to that page 
+  //     return data?.success ? navigate(location.pathname === '/auth' || location.pathname === '/' ? '/task/list' : `${location.pathname}`) : navigate("/auth"); // if success then list page else go to auth
 
 
-    };
-    verifyCookie();
-  }, [navigate, location.pathname])
+  //   };
+  //   verifyCookie();
+  // }, [navigate, location.pathname])
+
+  const verifyCookie = async () => {
+    setVerifying(true); // Start verification
+    const data = await callUserAuthAPI();
+    if (data?.userInfo) {
+      setUser(data?.userInfo);
+    }
+    if (data?.success) {
+      navigate(location.pathname === "/auth" || location.pathname === "/" ? "/task/list" : `${location.pathname}`);
+    } else {
+      navigate("/auth");
+    }
+    setVerifying(false); // Verification complete
+  };
+  verifyCookie();
+}, [navigate, location.pathname]);
   return (
     <TaskManagmentContext.Provider value={{
       user, 
