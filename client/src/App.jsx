@@ -20,7 +20,7 @@ function App() {
     <>
       <BackgroundAnimation />
       <Routes>
-        <Route path="/" element={user ? <Navigate to="/task/list" replace /> : <Navigate to="/auth" replace />} />
+        <Route path="/" element={user ? <Navigate to="/task/list" /> : <Navigate to="/auth" />} />
 
         <Route path="*" element={<PageNotFound />} />
         <Route path="/auth" element={<AuthPage />} />
