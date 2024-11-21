@@ -10,23 +10,13 @@ import BackgroundAnimation from './components/backgroundAnimation'
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import PageNotFound from './components/pageNotFound'
-import { useContext } from 'react'
-import { TaskManagmentContext } from './context/taskManagementContext'
 
 function App() {
 
-  const{user,verifying} = useContext(TaskManagmentContext);
   return (
     <>
       <BackgroundAnimation />
       <Routes>
-        {/* <Route path="/" element={
-            verifying 
-              ? null 
-              : user 
-              ? <Navigate to="/task/list" replace /> 
-              : <Navigate to="/auth" replace />
-          } /> */}
 
         <Route path="*" element={<PageNotFound />} />
         <Route path="/auth" element={<AuthPage />} />

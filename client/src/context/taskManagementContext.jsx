@@ -19,7 +19,6 @@ export function TaskManagmentState({ children }) {
   const [taskFormData, setTaskFromData] = useState(initialTaskState);
   const [taskList, setTaskList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [verifying, setVerifying] = useState(true);
   const [currentEditedTaskId,setCurrentEditedTaskId] = useState(null);
 
   const navigate = useNavigate();
@@ -42,21 +41,6 @@ export function TaskManagmentState({ children }) {
     verifyCookie();
   }, [navigate, location.pathname])
 
-//   const verifyCookie = async () => {
-//     setVerifying(true); // Start verification
-//     const data = await callUserAuthAPI();
-//     if (data?.userInfo) {
-//       setUser(data?.userInfo);
-//     }
-//     if (data?.success) {
-//       navigate(location.pathname === "/auth" || location.pathname === "/" ? "/task/list" : `${location.pathname}`);
-//     } else {
-//       navigate("/auth");
-//     }
-//     setVerifying(false); // Verification complete
-//   };
-//   verifyCookie();
-// }, [navigate, location.pathname]);
   return (
     <TaskManagmentContext.Provider value={{
       user, 
@@ -70,7 +54,6 @@ export function TaskManagmentState({ children }) {
       setLoading,
       currentEditedTaskId,
       setCurrentEditedTaskId,
-      verifying,
     }}>
       {children}
     </TaskManagmentContext.Provider>
