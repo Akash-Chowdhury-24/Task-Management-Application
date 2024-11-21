@@ -20,13 +20,13 @@ function App() {
     <>
       <BackgroundAnimation />
       <Routes>
-        <Route path="/" element={
+        {/* <Route path="/" element={
             verifying 
               ? null 
               : user 
               ? <Navigate to="/task/list" replace /> 
               : <Navigate to="/auth" replace />
-          } />
+          } /> */}
 
         <Route path="*" element={<PageNotFound />} />
         <Route path="/auth" element={<AuthPage />} />
