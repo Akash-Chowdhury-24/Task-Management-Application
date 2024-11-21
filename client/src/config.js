@@ -28,7 +28,7 @@ export const signinformcontrols = [{
   type: 'email',
   id: 'email',
   label: 'Email',
-  placeholder: 'Enter your email',
+  placeholder: 'Enter your email hooooo',
   componentType: 'input',
 },
 {
