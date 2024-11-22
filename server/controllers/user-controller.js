@@ -20,9 +20,7 @@ const loginSchema = Joi.object({
 
 // function to generate the token 
 const generateToken = (getId) =>{
-  return jwt.sign({getId}, process.env.TOKEN_SECRET_KEY,{
-    expiresIn :3*24*60*60*1000,
-  });
+  return jwt.sign({getId}, process.env.TOKEN_SECRET_KEY);
 };
 
 // the registration user controller
