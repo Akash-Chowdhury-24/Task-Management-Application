@@ -8,7 +8,7 @@ const userRouter = require('./routes/user-routes.js');
 const taskRouter = require('./routes/task-routes.js');
 const cors = require('cors');
 const cookieParse = require('cookie-parser');
-const { sendReminderEmail } = require('./middleware/mailSender.js');
+
 const Port = process.env.PORT;
 // configing the cors
 app.use(
