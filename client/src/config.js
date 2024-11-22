@@ -24,7 +24,7 @@ export const signupformcontrols = [{
 }]
 
 export const signinformcontrols = [{
-  name: 'emai',
+  name: 'email',
   type: 'email',
   id: 'email',
   label: 'Email',
