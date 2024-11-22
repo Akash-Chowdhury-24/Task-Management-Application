@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const backendUrl = `${import.meta.env.VITE_APP_BACKEND_URL}`;
-
+axios.defaults.withCredentials = true;
 export const callRegisterUserAPI = async (formData) => {
 
   // axios is just like fetch trying a different technique nothing else
