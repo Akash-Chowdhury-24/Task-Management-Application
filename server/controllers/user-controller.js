@@ -21,7 +21,7 @@ const loginSchema = Joi.object({
 // function to generate the token 
 const generateToken = (getId) =>{
   return jwt.sign({getId}, process.env.TOKEN_SECRET_KEY,{
-    expiresIn : 3*24*60*60,
+    expiresIn :3*24*60*60*1000,
   });
 };
 
@@ -71,6 +71,7 @@ const registerUser = async (req,res,next) =>{
       if (newlyCreatedUser) {
         const token = generateToken(newlyCreatedUser?._id); // generating the token 
         res.cookie('token',token,{ // save the token in a cookie and also create the cookie and send it 
+          expires : new Date(Date.now() + 3*24*60*60*1000),
           httpOnly : true,
           secure: true,
           sameSite: 'None',
