@@ -72,7 +72,9 @@ const registerUser = async (req,res,next) =>{
         const token = generateToken(newlyCreatedUser?._id); // generating the token 
         res.cookie('token',token,{ // save the token in a cookie and also create the cookie and send it 
           httpOnly : true,
-          withCredentials : false,
+          withCredentials : true,
+          secure: true,
+          sameSite: 'None',
         });
         
         return res.status(201).json({ // since all goo therefore send the responce 
