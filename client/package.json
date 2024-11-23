@@ -23,6 +23,7 @@
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^6.27.0",
     "react-toastify": "^10.0.6",
+    "task-managemnet-application-(full-stack)": "file:..",
     "toast": "^0.5.4"
   },
   "devDependencies": {
