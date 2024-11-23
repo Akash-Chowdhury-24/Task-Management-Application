@@ -24,7 +24,10 @@ app.use(express.json()); // for parsing all the data that is comming in json for
 
 app.use('/api/user', userRouter); // for the userRoute 
 app.use('/api/task', taskRouter); // for the taskRoute
-
+app.use(express.static(path.join(__dirname, '../client/dist')));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client", "dist", "index.html"));
+});
 // connection to the database and calling it
 require('./database');
 // tell to which endpoint the api calls are made 
