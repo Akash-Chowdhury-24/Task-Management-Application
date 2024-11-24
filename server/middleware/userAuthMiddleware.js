@@ -24,6 +24,7 @@ const userAuthVerification = async (req, res, next) => {
           userInfo,
         });
       }
+      next();
     } catch (error) {
       return res.status(401).json({
         success: false,
