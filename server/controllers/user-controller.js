@@ -160,18 +160,41 @@ const loginUser = async (req, res, next) => {
 }
 
 // controller for logging out the user 
-const logoutUser = async (req, res, next) => {
-  res.clearCookie('token'); // more efficent to remove the cookie only 
+// const logoutUser = async (req, res, next) => {
+//   //res.clearCookie('token'); // more efficent to remove the cookie only 
 
-  // res.cookie('token','',{ // less effeicient to set the cookie value to null
-  //   httpOnly : false,
-  //   withCredentials : true,
-  // })
-  return res.status(200).json({
-    success: true,
-    message: 'User logged out successfully',
-  });
-}
+//   // res.cookie('token','',{ // less effeicient to set the cookie value to null
+//   //   httpOnly : false,
+//   //   withCredentials : true,
+//   // })
+//   return res.status(200).json({
+//     success: true,
+//     message: 'User logged out successfully',
+//   });
+// }
+
+
+const logoutUser = async (req, res, next) => {
+  try {
+    // Clear the cookie with the same attributes used during creation
+    res.clearCookie('token', {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'None', // Match the creation options
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: 'User logged out successfully',
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+    next(error); // Pass any unexpected errors to the error handler middleware
+  }
+};
 
 module.exports = { registerUser, loginUser, logoutUser };
 
