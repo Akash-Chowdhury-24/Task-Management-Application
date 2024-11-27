@@ -20,7 +20,9 @@ const loginSchema = Joi.object({
 
 // function to generate the token 
 const generateToken = (getId) => {
-  return jwt.sign({ getId }, process.env.TOKEN_SECRET_KEY);
+  return jwt.sign({ getId }, process.env.TOKEN_SECRET_KEY,{
+    expiresIn: '3d',
+  });
 };
 
 // the registration user controller
@@ -69,10 +71,11 @@ const registerUser = async (req, res, next) => {
       if (newlyCreatedUser) {
         const token = generateToken(newlyCreatedUser?._id); // generating the token 
         res.cookie('token', token, { // save the token in a cookie and also create the cookie and send it 
-          expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+          // expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
           httpOnly: true,
           secure: true,
           sameSite: 'None',
+          maxAge: 3 * 24 * 60 * 60 * 1000,
         });
 
         return res.status(201).json({ // since all goo therefore send the responce 
@@ -139,10 +142,11 @@ const loginUser = async (req, res, next) => {
     // generate the token and cookie
     const token = generateToken(getUser._id);
     res.cookie("token", token, {
-      expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+      // expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
       httpOnly: true,
       secure: true,
       sameSite: 'None',
+      maxAge: 3 * 24 * 60 * 60 * 1000,
     });
 
     // send positive respose 
