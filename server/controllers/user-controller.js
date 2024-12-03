@@ -148,7 +148,7 @@ const loginUser = async (req, res, next) => {
       secure: true,
       sameSite: 'None',
       maxAge: 3 * 24 * 60 * 60 * 1000,
-      domain: process.env.COOKIE_DO
+      domain: process.env.COOKIE_DOMAIN
     });
 
     // send positive respose 
