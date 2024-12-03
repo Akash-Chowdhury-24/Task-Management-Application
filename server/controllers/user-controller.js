@@ -76,7 +76,7 @@ const registerUser = async (req, res, next) => {
           secure: true,
           sameSite: 'None',
           maxAge: 3 * 24 * 60 * 60 * 1000,
-          domain: process.env.COOKIE_DOMAIN
+
         });
 
         return res.status(201).json({ // since all goo therefore send the responce 
@@ -148,7 +148,6 @@ const loginUser = async (req, res, next) => {
       secure: true,
       sameSite: 'None',
       maxAge: 3 * 24 * 60 * 60 * 1000,
-      domain: process.env.COOKIE_DOMAIN
     });
 
     // send positive respose 
@@ -187,7 +186,7 @@ const logoutUser = async (req, res, next) => {
       httpOnly: true,
       secure: true,
       sameSite: 'None', // Match the creation options
-      domain: process.env.COOKIE_DOMAIN
+
     });
 
     return res.status(200).json({
